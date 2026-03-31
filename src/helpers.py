@@ -49,7 +49,7 @@ def distribute(points):
     #add that number of points to second in SCORES
     scores[1]+=scor
     #display you have POINTS points put into intelligence
-    print(f'\nThe remaining {get_points(0)} points go into intelligence.')
+    print(f'\nThe remaining {get_points(0)} points go into magic.')
     #add POINTS to third in SCORES
     scores[2]+=get_points(0)
     #return SCORES
