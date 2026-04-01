@@ -1,0 +1,8 @@
+,Bob,Not Bob
+class,knight,wizard
+strength,5,0
+speed,0,2
+magic,0,4
+skill,"{'Parry': ""Use a melee attack to negate an enemy's next attack""}",{'Quick Spell': 'Cast two spells as one attack.'}
+inventory,{'world':'the world'},{}
+level,1,1
