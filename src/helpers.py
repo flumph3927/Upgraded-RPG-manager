@@ -1,3 +1,5 @@
+import pandas
+
 def simple(input):
     input = (input).strip().lower()
     return input
@@ -54,3 +56,26 @@ def distribute(points):
     scores[2]+=get_points(0)
     #return SCORES
     return scores[0],scores[1],scores[2]
+
+#create display function, get chars
+def display(chars):
+    #loop thorugh chars and display
+    for i,v in enumerate(list(chars.values())):
+        print(f'{i+1}. {v.name}: Level {v.level} {v.clas}')
+
+#character selection function, get chars
+def select(chars):
+    #call display function
+    display(chars)
+    #get number, return correct character
+    choice=input('Enter character\'s number: ')
+    while choice not in [str(x+1) for x in range(len(chars))]:
+        print('Invalid input. Try again.')
+        choice=input('Enter character\'s number: ')
+    return chars[int(choice)]
+
+def amalgamate(chars):
+    out={}
+    for i in chars:
+        out|chars[i].dictify()
+    return pandas.DataFrame(out)

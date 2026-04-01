@@ -50,7 +50,7 @@ class Character:
             self.level=opts[7]
     
     def dtfrme(self):
-        return pandas.DataFrame({self.name:[self.clas,self.str,self.spd,self.mag,self.skill,self.holds,self.level]},v)
+        return pandas.DataFrame({self.name:[self.clas,self.str,self.spd,self.mag,self.skill,self.holds,self.level]},index=['class','strength','speed','magic','skill','inventory','level'])
 
     def dictify(self):
         return {self.name:[self.clas,self.str,self.spd,self.mag,self.skill,self.holds,self.level]}
