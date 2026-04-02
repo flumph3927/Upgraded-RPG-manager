@@ -72,10 +72,10 @@ def select(chars):
     while choice not in [str(x+1) for x in range(len(chars))]:
         print('Invalid input. Try again.')
         choice=input('Enter character\'s number: ')
-    return chars[int(choice)]
+    return list(chars.values())[int(choice)-1]
 
 def amalgamate(chars):
     out={}
-    for i in chars:
-        out|chars[i].dictify()
+    for i in chars.keys():
+        out|=chars[i].dictify()
     return pandas.DataFrame(out)

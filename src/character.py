@@ -81,7 +81,7 @@ class Character:
         #set CHAR level to 2
         self.level=2
         #add function distribute called on random number between 5 and 10 to CHAR scores
-        self.str,self.spd,self.mag=helpers.distribute(random.randint(5,10))
+        self.str,self.spd,self.mag=helpers.distribute(random.randint(5,10)+self.str+self.spd+self.mag)
         self.new_skill()
 
     def new_stats(self):
@@ -130,7 +130,7 @@ class Character:
         #If they chose to add an item, let them create its name and its description, adding it to the dictionary
         if answer == "c":
             name = input("What is the name of this item?:")
-            description = input("What is the description of this weapon?:")
+            description = input("What is the description of this item?:")
             self.holds[name] = description
         #If they chose to remove an item, create a for loop that will print of the name and the description
         else:

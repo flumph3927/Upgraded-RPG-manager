@@ -3,7 +3,7 @@ import files,helpers,character
 
 #create main function
 def main():
-    chars=files.load('docs/chars.csv')
+    chars=files.load('docs/chars.json')
     #loop
     while True:
         #get user input for show character, compare characters, create character, modify character, view all characters, characters analytics, save, export, import, exit
@@ -34,26 +34,30 @@ def main():
         #else if modify character
         elif choice=='4':
             #get user input for level up, change scores, change inventory, or change skill
-            choic=input('1. Level up\n2. Change scores\n3. Modify inventory\n3. Change skill\n')
+            choic=input('1. Level up\n2. Change scores\n3. Modify inventory\n4. Change skill\n')
             while choic not in [str(x+1) for x in range(4)]:
                 print('Invalid input. Try again.')
-                choic=input('1. Level up\n2. Change scores\n3. Modify inventory\n3. Change skill\n')
+                choic=input('1. Level up\n2. Change scores\n3. Modify inventory\n4. Change skill\n')
             #if level up
             if choic=='1':
                 char=helpers.select(chars)
-                chars[char.name]=char.level_up()
+                char.level_up()
+                chars[char.name]=char
             #else if change scores
             elif choic=='2':
                 char=helpers.select(chars)
-                chars[char.name]=char.new_stats()
+                char.new_stats()
+                chars[char.name]=char
             #else if change inventory
             elif choic=='3':
                 char=helpers.select(chars)
-                chars[char.name]=char.get_stuff()
+                char.get_stuff()
+                chars[char.name]=char
             #else
             else:
                 char=helpers.select(chars)
-                chars[char.name]=char.new_skill()
+                char.new_skill()
+                chars[char.name]=char
         #else if view all
         elif choice=='5':
             helpers.display(chars)
@@ -62,7 +66,7 @@ def main():
             pass
         #else if save
         elif choice=='7':
-            files.save(helpers.amalgamate(chars),'docs/chars.csv')
+            files.save(helpers.amalgamate(chars),'docs/chars.json')
         #else if export
         elif choice=='8':
             files.save(helpers.amalgamate(chars),input('File path to export to: '))
