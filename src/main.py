@@ -13,8 +13,16 @@ def main():
             choice=input('1. Show character\n2. Compare character\n3. Create character\n4. Modify character\n5. View all characters\n6. Character analytics\n7. Save\n8. Export\n9. Import\n10. Exit\n')
         #if show character
         if choice=='1':
-            char=helpers.select(chars)
-            graphs.DataVisualization(char).display()
+            choic=input('1. Comprehensive view\n2. Score visualization\n')
+            while choic not in ['1','2']:
+                print('Invalid input. Try again.')
+                choic=input('1. Comprehensive view\n2. Score visualization\n')
+            if choic=='1':
+                char=helpers.select(chars)
+                char.cshow()
+            else:
+                char=helpers.select(chars)
+                graphs.DataVisualization(char).display()
         #else if compare characters
         elif choice=='2':
             char=helpers.select(chars)
